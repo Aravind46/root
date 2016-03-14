@@ -1,0 +1,3 @@
+latt= +-.02
+long= +-.094
+Gives the radius of 10km
