@@ -23,7 +23,7 @@
     </style>
     <script>
         $(document).ready(function () {
-            $('#menu_item,#menu_1,#menu_3,#menu_4').hide();
+            $('#menu_item,#menu_1,#menu_3,#menu_4,#menu_5').hide();
             $('#obj_menu').click(function () {
                 $('#menu_item').toggle("explode");
             });
@@ -37,7 +37,7 @@
         function OnMenuClick(Menu_id) {
             $('#menu_item').hide("explode");
             $('#menu_1,#menu_2,#menu_3,#menu_4').hide();
-            $('#' + Menu_id + '').show("fadein");
+            $('#' + Menu_id + '').show("bounce");
         }
     </script>
 </head>
@@ -123,6 +123,17 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="menu_5" style="position: absolute; top: 35px; background-color: Black;">
+    <ul  class='nav nav-tabs'>
+    <li ><a data-toggle='tab' href='#a'>A</a></li>
+    <li ><a data-toggle='tab' href='#b'>B</a></li>
+    </ul>
+    <div class='tab-content' >
+        <div id="a" class="tab-pane fade in active"></div>
+        <div id="b" class="tab-pane fade in "></div>
+    </div>
+    
     </div>
      <div class="container" id="menu_item" style="position: absolute; top: 35px;padding-left: 0px; background: rgba(0, 0, 0, 0.52);">
         <div class="row" style="padding-top: 8em;">
