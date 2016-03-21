@@ -9,6 +9,8 @@
         rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+		
     <style>
         body
         {
@@ -25,13 +27,18 @@
             $('#obj_menu').click(function () {
                 $('#menu_item').toggle("explode");
             });
+            $('#menu_item').css({ "height": window.innerHeight - 36, "width": window.innerWidth }) // Tracer
             $('#menu_1').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // find nearby busstop
             $('#menu_2').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // find nearby bus stop in destination
-            $('#menu_3').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // Tickets
-            $('#menu_4').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // Tracer
-
+            $('#menu_3').css({ "height": window.innerHeight - 36, "width": window.innerWidth  }) // Tickets
+            $('#menu_4').css({ "height": window.innerHeight - 36, "width": window.innerWidth  }) // Tracer
+            
         });
-        
+        function OnMenuClick(Menu_id) {
+            $('#menu_item').hide("explode");
+            $('#menu_1,#menu_2,#menu_3,#menu_4').hide();
+            $('#' + Menu_id + '').show("fadein");
+        }
     </script>
 </head>
 <body>
@@ -73,59 +80,6 @@
             </div>
         </div>
         </form>
-    </div>
-    <div class="container" id="menu_item" style="position: absolute; top: 35px; width: 100%;
-        padding-left: 0px; background: rgba(0, 0, 0, 0.52);">
-        <div class="row" style="padding-top: 8em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 ">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
-            </div>
-        </div>
     </div>
     <div  id="menu_1" style="position: absolute;     top: 35px; background-color: Black;">
         <div class="row" style="height: 40%; background-color: White;">
@@ -170,5 +124,58 @@
             </div>
         </div>
     </div>
+     <div class="container" id="menu_item" style="position: absolute; top: 35px;padding-left: 0px; background: rgba(0, 0, 0, 0.52);">
+        <div class="row" style="padding-top: 8em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_1')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 1</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_2')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 2</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_3')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 3</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_4')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 4</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_5')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 5</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_6')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 6</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_7')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 7</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_8')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 8</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_9')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 9</span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_10')">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 10</span>
+            </div>
+        </div>
+    </div>
+   
 </body>
 </html>
