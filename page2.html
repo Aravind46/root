@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +9,6 @@
         rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    
     <style>
         body
         {
@@ -21,53 +18,18 @@
         {
             padding-left: 0px;
         }
-        @media (min-width: 480px) {
-  
-  .col-xs-height {
-    display: table-cell;
-    float: none;
-    height: 100%;
-  }
- 
-}
-
-@media (min-width: 768px) {
- 
-  .col-sm-height {
-    display: table-cell;
-    float: none;
-    height: 100%;
-  }
- 
-}
-
-@media (min-width: 992px) {
-  
-  .col-md-height {
-    display: table-cell;
-    float: none;
-    height: 100%;
-  }
- 
-}
-
-@media (min-width: 1200px) {
-
-  .col-lg-height {
-    display: table-cell;
-    float: none;
-    height: 100%;
-  }
- 
-}
-  
     </style>
     <script>
         $(document).ready(function () {
-            $('#menu_item').hide();
+            $('#menu_item,#menu_1,#menu_3,#menu_4').hide();
             $('#obj_menu').click(function () {
                 $('#menu_item').toggle("explode");
             });
+            $('#menu_1').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // find nearby busstop
+            $('#menu_2').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // find nearby bus stop in destination
+            $('#menu_3').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // Tickets
+            $('#menu_4').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // Tracer
+
         });
         
     </script>
@@ -75,8 +37,8 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="pull-right">
-                <span class="glyphicon glyphicon-th " style="" id="obj_menu"></span>
+            <div style="float: right;">
+                <span class="glyphicon glyphicon-th " style="font-size: 230%" id="obj_menu"></span>
             </div>
         </div>
         <form role="form" style="padding-top: 3em;">
@@ -109,85 +71,104 @@
                         SUBMIT</button>
                 </div>
             </div>
+        </div>
         </form>
     </div>
-    <div class="container" id="menu_item" style="position: absolute; top: 35px; width:100%;padding-left: 0px;background: rgba(0, 0, 0, 0.52);">
-        <div class="row" style="    padding-top: 8em;">
-              <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
+    <div class="container" id="menu_item" style="position: absolute; top: 35px; width: 100%;
+        padding-left: 0px; background: rgba(0, 0, 0, 0.52);">
+        <div class="row" style="padding-top: 8em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
             </div>
-
-           </div>
-  <div class="row" style="    padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-            
-  <div class="row" style="    padding-top: 1em;">
-               <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-            
-  <div class="row" style="    padding-top: 1em;">        
-    <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-            
-  <div class="row" style="    padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-            
-  <div class="row" style="    padding-top: 1em;">
-                    <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-            
-  <div class="row" style="    padding-top: 1em;">
-                     <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-            
-  <div class="row" style="    padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-            
-  <div class="row" style="    padding-top: 1em;">
-                        <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-            
-  <div class="row" style="    padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " >
-                <span class="glyphicon glyphicon-asterisk" style="font-size:100%;"></span>
-            </div>
-
-           </div>
-          
-    </div>
-
-        <div class=" col-sm-height col-xs-height col-lg-height " id="menu_1"  style=" background-color:Black;">
-            
-            <div class="row" style="height:40%; background-color:White;" ></div>
-            <div class="row" style="height:60%;"></div>
         </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 1em;">
+            <div class="col-xs-11  col-sm-11  col-lg-11 ">
+                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;"></span>
+            </div>
+        </div>
+    </div>
+    <div  id="menu_1" style="position: absolute;     top: 35px; background-color: Black;">
+        <div class="row" style="height: 40%; background-color: White;">
+        </div>
+        <div class="row" style="height: 60%; background-color: orange;">
+        </div>
+    </div>
+    <div id="menu_2" style="position: absolute; top:35px; background-color: Black;">
+        <div class="row" style="height: 20%; background-color: White;">
+            <div class="form-group-lg form-group-md form-group-sm" >
+                
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1" style="padding-top: 2%;">
+                        <input type="text" placeholder="Landmark" class="form-control" />
+                
+                </div>
+            </div>
+        </div>
+        <div class="row" style="height: 80%; background-color: orange;">
+        </div>
+    </div>
+    <div id="menu_3" style="position: absolute; top: 35px; background-color: Black;">
+    </div>
+     <div id="menu_4" style="position: absolute; top: 35px; background-color: Black;">
+        <div class="form-group-lg form-group-md form-group-sm">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
+                    <button type="button" class="btn btn-default">
+                        Start</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
+                    <button type="button" class="btn btn-default">
+                        Stop</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
+                    <button type="button" class="btn btn-default">
+                        Trace</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
-    
