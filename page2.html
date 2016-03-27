@@ -13,77 +13,136 @@
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js">
     <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 		
-    <style>
-        body
-        {
+        <style>
+        body {
             background-color: #5bc0de;
         }
-        .container
-        {
+
+        .container {
             padding-left: 0px;
         }
     </style>
     <script>
         $(document).ready(function () {
-            $('#menu_item,#menu_1,#menu_3,#menu_4,#menu_5').hide();
+            $('#menu_item,#menu_1,#menu_2,#menu_3,#menu_4,#menu_5,#menu_6,#menu_7,#menu_8,#menu_9,#menu_10,#Service_type').hide();
             $('#obj_menu').click(function () {
                 $('#menu_item').toggle("explode");
             });
             $('#menu_item').css({ "height": window.innerHeight - 36, "width": window.innerWidth }) // Tracer
+            $('#Service_type').css({ "height": window.innerHeight - 35, "width": window.innerWidth })
             $('#menu_1').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // find nearby busstop
             $('#menu_2').css({ "height": window.innerHeight - 36, "width": window.innerWidth - 15 }) // find nearby bus stop in destination
-            $('#menu_3').css({ "height": window.innerHeight - 36, "width": window.innerWidth  }) // Tickets
-            $('#menu_4').css({ "height": window.innerHeight - 36, "width": window.innerWidth  }) // Tracer
-            
+            $('#menu_3').css({ "height": window.innerHeight - 36, "width": window.innerWidth }) // Tickets
+            $('#menu_4,#menu_8,#menu_9,#menu_10').css({ "height": window.innerHeight - 36, "width": window.innerWidth }) // Tracer
+            $('#menu_7,#menu_7_1').css({ "height": window.innerHeight - 36, "width": window.innerWidth }) // Tracer
+
+            $('#a,#b').css({ "height": window.innerHeight - 76, "width": window.innerWidth }) // Tracer
+
+            $('#icon_submit_back,#icon_menu7_back').css({ "font-size": (window.innerHeight / 26) });
+            $('#men1,#men2,#men3,#men4,#men5,#men6,#men7,#men8,#men9,#men10').css({ "font-size": (window.innerHeight / 32), "color": "#716969" })
+            $('.btn-default').css({ "font-size": (window.innerHeight / 28) })
+            //$('.form-control').css({ "height": (window.innerHeight / 14) })
+
+            var Source = ["a", "b", "c", "aaa", "aft", "aadfiu"];
+
+            $('#Source').autocomplete({ source: Source });
+            getLocation();
         });
+        function getLocation() {
+            navigator.geolocation.getCurrentPosition(showPosition)
+        }
+        function showPosition(position) {
+            console.log(position.coords.latitude);
+        }
         function OnMenuClick(Menu_id) {
+
             $('#menu_item').hide("explode");
-            $('#menu_1,#menu_2,#menu_3,#menu_4').hide();
+            $('#menu_1,#menu_2,#menu_3,#menu_4,#menu_5,#menu_6,#menu_7,#menu_8,#menu_9,#menu_10').hide();
             $('#' + Menu_id + '').show("bounce");
+
+        }
+        function SubmitClick() {
+            $('#Service_type').fadeIn();
+        }
+        function SubmitBack() {
+            $('#Service_type').fadeOut();
+        }
+        function PassSubmit(passvalue) {
+            $('#menu_7_1').fadeIn();
+            $('#hidd_passvalue').val(passvalue);
+        }
+        function PassBack() {
+            $('#menu_7_1').fadeOut();
+
         }
     </script>
 </head>
 <body>
-    <div class="container">
+    <div id="Home" class="container">
         <div class="row">
             <div style="float: right;">
                 <span class="glyphicon glyphicon-th " style="font-size: 230%" id="obj_menu"></span>
             </div>
         </div>
         <form role="form" style="padding-top: 3em;">
-        <div class="form-group-lg form-group-md form-group-sm">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
-                    <input type="text" class="form-control" placeholder="Source" />
-                </div>
-            </div>
-        </div>
-        <div class="form-group-lg form-group-md form-group-sm" style="padding: 2%;">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
-                    <div style="">
-                        <span class="glyphicon glyphicon-pushpin"></span>
+            <div class="form-group-lg form-group-md form-group-sm">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
+                        <input type="text" id="Source" class="form-control" placeholder="Source" />
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group-lg form-group-md form-group-sm">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
-                    <input type="text" class="form-control" placeholder="Destination" /></div>
-            </div>
-        </div>
-        <div class="form-group-lg form-group-md form-group-sm" style="padding-top: 6%;">
-            <div class="row">
-                <div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-lg-11 col-lg-offset-1">
-                    <button class="btn btn-success">
-                        SUBMIT</button>
+            <div class="form-group-lg form-group-md form-group-sm" style="padding: 2%;">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
+                        <div style="">
+                            <span class="glyphicon glyphicon-pushpin"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="form-group-lg form-group-md form-group-sm">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
+                        <input type="text" class="form-control" placeholder="Destination" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group-lg form-group-md form-group-sm" style="padding-top: 6%;">
+                <div class="row">
+                    <div class="col-xs-11 col-xs-offset-1 col-sm-11 col-sm-offset-1 col-lg-11 col-lg-offset-1">
+                        <button type="button" onclick="SubmitClick()" class="btn btn-success">
+                            SUBMIT
+                        </button>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
-    <div  id="menu_1" style="position: absolute;     top: 35px; background-color: Black;">
+    <div id="Service_type" style="top:35px;position:absolute;background-color:black;">
+        <div class="row" style="height:6%;  border-bottom:1px solid silver;  padding:1%; color:white;">
+            <div style="float: left; margin-left:6%;">
+                <span id="icon_submit_back" class="glyphicon glyphicon-chevron-left" style="font-size: 200%" onclick="SubmitBack()"></span>
+            </div>
+
+
+        </div>
+        <div class="row" style="height:30%;padding-left:8%; margin-top:4%;">
+            <div class="col-xs-5 col-sm-5  col-lg-5 " style="background-color:white;height:100%;"></div>
+            <div class="col-xs-1 col-sm-1  col-lg-1 " style="height:100%;"></div>
+            <div class="col-xs-5 col-sm-5  col-lg-5" style="background-color:green;height:100%;"></div>
+        </div>
+        <div class="row" style="height:30%; padding-left:8%; margin-top:10%;">
+            <div class="col-xs-5 col-sm-5  col-lg-5 " style="background-color:blue;height:100%;"></div>
+            <div class="col-xs-1 col-sm-1  col-lg-1 " style="height:100%;"></div>
+            <div class="col-xs-5 col-sm-5  col-lg-5" style="background-color:orangered;height:100%;"></div>
+
+        </div>
+        <div class="row" style="height:20%;margin-top:2%; padding:9%;">
+            <button type="button" class="btn btn-success">Payment</button>
+        </div>
+    </div>
+    <div id="menu_1" style="position: absolute;     top: 35px; background-color: Black;">
         <div class="row" style="height: 40%; background-color: White;">
         </div>
         <div class="row" style="height: 60%; background-color: orange;">
@@ -91,11 +150,14 @@
     </div>
     <div id="menu_2" style="position: absolute; top:35px; background-color: Black;">
         <div class="row" style="height: 20%; background-color: White;">
-            <div class="form-group-lg form-group-md form-group-sm" >
-                
-                    <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1" style="padding-top: 2%;">
-                        <input type="text" placeholder="Landmark" class="form-control" />
-                
+            <div class="form-group-lg form-group-md form-group-sm">
+
+                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1" style="padding-top: 2%;">
+                    <input type="text" placeholder="Landmark" class="form-control" />
+                </div>
+                <div style="display:table-row;"class="col-xs-6 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-lg-6 col-lg-offset-1">
+                    <button type="button" class="btn btn-warning">Find</button>
+
                 </div>
             </div>
         </div>
@@ -104,91 +166,196 @@
     </div>
     <div id="menu_3" style="position: absolute; top: 35px; background-color: Black;">
     </div>
-     <div id="menu_4" style="position: absolute; top: 35px; background-color: Black;">
+    <div id="menu_4" style="position: absolute; top: 35px; background-color: Black;">
         <div class="form-group-lg form-group-md form-group-sm">
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
-                    <button type="button" class="btn btn-default">
-                        Start</button>
-                </div>
+            <div style="display:table-row;padding-top:10%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                <button type="button" class="btn btn-default" style="padding:7%;width:97%;">
+                    Start
+                </button>
             </div>
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
-                    <button type="button" class="btn btn-default">
-                        Stop</button>
-                </div>
+
+            <div style="display:table-row;padding-top:5%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                <button type="button" class="btn btn-default" style="padding:7%;width:97%;">
+                    Stop
+                </button>
             </div>
-            <div class="row">
-                <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
-                    <button type="button" class="btn btn-default">
-                        Trace</button>
-                </div>
+
+            <div style="display:table-row;padding-top:5%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                <button type="button" class="btn btn-default" style="padding:7%;width:97%;">
+                    Trace
+                </button>
             </div>
+
+
         </div>
     </div>
     <div id="menu_5" style="position: absolute; top: 35px; background-color: Black;">
-    <ul  class='nav nav-tabs'>
-    <li ><a data-toggle='tab' href='#a'>A</a></li>
-    <li ><a data-toggle='tab' href='#b'>B</a></li>
-    </ul>
-    <div class='tab-content' >
-        <div id="a" class="tab-pane fade in active"></div>
-        <div id="b" class="tab-pane fade in "></div>
-    </div>
-    
-    </div>
-     <div class="container" id="menu_item" style="position: absolute; top: 35px;padding-left: 0px; background: rgba(0, 0, 0, 0.52);">
-        <div class="row" style="padding-top: 8em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_1')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 1</span>
+        <ul class='nav nav-tabs'>
+            <li><a data-toggle='tab' href='#a'>A</a></li>
+            <li><a data-toggle='tab' href='#b'>B</a></li>
+        </ul>
+        <div class='tab-content'>
+            <div id="a" style="background-color:mediumorchid;" class="tab-pane fade in active">
+                <div style="display:table-row; height:30%;border-bottom:1px solid silver;" class="col-xs-12  col-sm-12  col-lg-12 ">
+
+                    <div style="display:table-row; padding-top:5%;" class="col-xs-7  col-sm-7  col-lg-7 ">
+                        <select class="form-control"><option>1</option><option>2</option><option>3</option></select>
+                    </div>
+                    <div style="display:table-row;padding-top:10%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                        <button type="button" class="btn btn-success">GO</button>
+                    </div>
+                </div>
+                <div style="display:table-row; height:70%; background-color:yellow;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                </div>
             </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_2')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 2</span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_3')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 3</span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_4')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 4</span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_5')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 5</span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_6')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 6</span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_7')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 7</span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_8')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 8</span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_9')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 9</span>
-            </div>
-        </div>
-        <div class="row" style="padding-top: 1em;">
-            <div class="col-xs-11  col-sm-11  col-lg-11 " onclick="OnMenuClick('menu_10')">
-                <span class="glyphicon glyphicon-asterisk" style="font-size: 100%;">Menu 10</span>
+            <div id="b" class="tab-pane fade in " style="background-color:mediumslateblue;">
+                <div style="display:table-row; height:40%;border-bottom:1px solid silver;" class="col-xs-12  col-sm-12  col-lg-12 ">
+
+
+                    <div style="display:table-row; padding-top:5%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                        <input type="text" class="form-control" placeholder="Source" />
+
+                    </div>
+                    <div style="display:table-row;padding-top:7%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                        <input type="text" class="form-control" placeholder="Destination" />
+
+                    </div>
+                    <div style="display:table-row;padding-top:8%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                        <button type="button" class=" btn btn-success">GO</button>
+                    </div>
+                </div>
+                <div style="display:table-row;padding-top:2%; height:60%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+
+                </div>
             </div>
         </div>
     </div>
-   
+
+    <div id="menu_7" style="position: absolute; top: 35px; background-color: Black;">
+        <div class="form-group-lg form-group-md form-group-sm">
+            <div style="display:table-row;padding-top:10%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                <button type="button" onclick="PassSubmit('50')" class="btn btn-default" style="padding:7%;width:97%;">
+                    50Rs
+                </button>
+            </div>
+
+            <div style="display:table-row;padding-top:5%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                <button type="button" onclick="PassSubmit('1000')" class="btn btn-default" style="padding:7%;width:97%;">
+                    1000Rs
+                </button>
+            </div>
+            <div id="menu_7_1" style="position:absolute;background-color:dodgerblue; display:none;">
+                <input type="hidden" id="hidd_passvalue" />
+                <div style="display:table-row;  height:6%;  border-bottom:1px solid silver;  padding:1%; color:white;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                    <div style="float: left; ">
+                        <span id="icon_menu7_back" onclick="PassBack()" class="glyphicon glyphicon-chevron-left" style="font-size: 200%" onclick="Menu7Back()"></span>
+                    </div>
+                </div>
+                <div class="col-xs-12  col-sm-12  col-lg-12 " style="display:table-row;height:94%; background-color:lime;  padding:1%; color:white;">
+                    <div style="display:table-row; height:25%; " class="col-xs-12  col-sm-12  col-lg-12 ">
+                        <div style="height:100%;background-color:yellow; height:95%;width:37%; border-radius:28%;"></div>
+
+                    </div>
+
+                    <div class="form-group-lg form-group-md form-group-sm" style="height:75%;">
+
+                        <div style="display:table-row; padding-top:2%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                            <input type="text" class="form-control" placeholder="Name" />
+                        </div>
+
+                        <div style="display:table-row;padding-top:2%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                            <input type="date" class="form-control" />
+                        </div>
+                        <div style="display:table-row;padding-top:4%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                            <button type="button" class="btn btn-primary">Payment</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <div id="menu_8" style="position: absolute; top: 35px; background-color:crimson;">
+        <div style="display:table-row; height:20%; background-color:lightpink;" class="col-xs-12  col-sm-12  col-lg-12 "></div>
+
+            <div style="display:table-row; height:80%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                <div class="form-group-lg form-group-md form-group-sm">
+                    <div style="display:table-row; padding-top:2%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                        <input type="text" class="form-control" placeholder="Amount" />
+                    </div>
+                    <div style="display:table-row; padding-top:2%;" class="col-xs-12  col-sm-12  col-lg-12 ">
+                        <button class="btn btn-warning">Add Money</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <div id="menu_9" style="position: absolute; top: 35px; background-color:chocolate;">
+    </div>
+
+    <div id="menu_10" style="position: absolute; top: 35px; background-color:lightblue;">
+    </div>
+
+
+    <div class="container" id="menu_item" style="position: absolute; top: 35px;padding-left: 0px; background:white;">
+        <div class="row" style="background-color:darkgrey;height: 21%;background-size: contain;    background-repeat: no-repeat; "><img style="height:90%;" src="IMG_3413.png"></div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('Home')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men6" style="font-size: 100%;">Home</span>
+            </div>
+
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_2')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men2" style="font-size: 100%;">Find Destination</span>
+            </div>
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_3')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men3" style="font-size: 100%;">Tickets</span>
+            </div>
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_4')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men4" style="font-size: 100%;">Trace Me</span>
+            </div>
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_5')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men5" style="font-size: 100%;">Bus Timing</span>
+            </div>
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_1')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men1" style="font-size: 100%;">Stops NearBy</span>
+            </div>
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_7')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men7" style="font-size: 100%;">E-Passes</span>
+            </div>
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_8')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men8" style="font-size: 100%;">Add Money</span>
+            </div>
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_9')" style="border-bottom:1px solid rgba(149, 154, 149, 0.76);">
+                <span class="" id="men9" style="font-size: 100%;">Wallet</span>
+            </div>
+        </div>
+        <div class="row" style="padding:2%;">
+            <div class="col-xs-12  col-sm-12  col-lg-12 " onclick="OnMenuClick('menu_10')">
+                <span class="" id="men10" style="font-size: 100%;">Setting</span>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
