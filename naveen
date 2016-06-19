@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="myCanvas" width="1345" height="620" style="border:1px solid #c3c3c3;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<img src='canvas.jpg' style='display:none;' id='timerbg' >
+
+<script>
+
+
+
+
+function days(){
+var tempmin = new Date();
+var date= 22-tempmin.getDate()-1;
+return date;
+
+}
+
+function minutes()
+{
+var tempmin = new Date();
+var min= 60-tempmin.getMinutes();
+
+return min
+}
+
+function hours()
+{
+var temphour = new Date();
+var hrs= 23-temphour.getHours();
+
+return hrs
+}
+
+
+function seconds(){
+
+var tempsec = new Date();
+var sec= 60-tempsec.getSeconds();
+return Math.abs(sec);
+
+}
+
+
+setInterval(draw,1000);
+
+
+
+function draw(){
+
+
+console.log('a')
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var img = document.getElementById("timerbg");
+
+ctx.font="30px Arial";
+ctx.globalAlpha=1;
+
+ctx.clearRect(0, 0, c.width, c.height);
+
+ctx.beginPath();
+ctx.arc(c.width*0.20,c.height*0.45,c.width*0.08,0,Math.PI*2);
+ctx.strokeStyle='grey';
+ctx.stroke();
+
+
+ctx.beginPath();
+ctx.moveTo(c.width*0.20,c.height*0.45)
+ctx.arc(c.width*0.20,c.height*0.45,c.width*0.08,Math.PI*1.5,(days()*120 +270)*0.0174533);
+ctx.fillStyle="pink"
+ctx.fill();
+ctx.strokeStyle='grey';
+ctx.stroke();
+
+
+ctx.beginPath();
+ctx.arc(c.width*0.20,c.height*0.45,c.width*0.075,0,Math.PI*2);
+
+ctx.fillStyle='white';
+ctx.fill()
+ctx.strokeStyle='grey';
+ctx.stroke();
+ctx.fillStyle='black';
+
+ctx.fillText(days()+' Days',c.width*0.17,c.height*0.48)
+
+
+
+
+//hours
+
+ctx.beginPath();
+ctx.arc(c.width*0.40,c.height*0.45,c.width*0.08,0,Math.PI*2);
+ctx.strokeStyle='grey';
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(c.width*0.40,c.height*0.45)
+ctx.arc(c.width*0.40,c.height*0.45,c.width*0.08,Math.PI*1.5,(hours()*15 +270)*0.0174533);
+ctx.fillStyle="orange"
+ctx.fill();
+ctx.strokeStyle='grey';
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(c.width*0.40,c.height*0.45,c.width*0.075,0,Math.PI*2);
+
+ctx.fillStyle='white';
+ctx.fill()
+ctx.strokeStyle='grey';
+ctx.stroke();
+ctx.fillStyle='black';
+ctx.fillText(hours()+' Hours',c.width*0.37,c.height*0.48)
+
+
+
+//miniutes
+
+ctx.beginPath();
+ctx.arc(c.width*0.60,c.height*0.45,c.width*0.08,0,Math.PI*2);
+ctx.strokeStyle='grey';
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(c.width*0.60,c.height*0.45)
+ctx.arc(c.width*0.60,c.height*0.45,c.width*0.08,Math.PI*1.5,(minutes()*6 +270)*0.0174533);
+ctx.fillStyle="cyan"
+
+ctx.fill();
+ctx.strokeStyle='grey';
+ctx.stroke();
+ctx.beginPath();
+ctx.arc(c.width*0.60,c.height*0.45,c.width*0.075,0,Math.PI*2);
+
+ctx.fillStyle='white';
+ctx.fill()
+
+ctx.strokeStyle='grey';
+ctx.stroke();
+ctx.fillStyle='black';
+ctx.fillText(minutes()+' Mins',c.width*0.57,c.height*0.48)
+
+//ctx.fillText(minutes(),c.width*0.60,c.height*0.45);
+
+
+
+//sec
+ctx.beginPath();
+ctx.arc(c.width*0.80,c.height*0.45,c.width*0.08,0,Math.PI*2);
+ctx.strokeStyle='grey';
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(c.width*0.80,c.height*0.45)
+ctx.arc(c.width*0.80,c.height*0.45,c.width*0.08,Math.PI*1.5,((seconds()*6 )+270)*0.0174533);
+ctx.fillStyle="lime"
+ctx.fill();
+ctx.strokeStyle='grey';
+ctx.stroke();
+
+ctx.beginPath();
+ctx.arc(c.width*0.80,c.height*0.45,c.width*0.075,0,Math.PI*2);
+
+ctx.fillStyle='white';
+ctx.fill()
+ctx.strokeStyle='grey';
+ctx.stroke();
+ctx.fillStyle='black';
+
+ctx.fillText(seconds() +' Secs',c.width*0.77,c.height*0.48)
+
+ctx.globalAlpha=0.3;
+    ctx.drawImage(img, 0, 0);
+
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
